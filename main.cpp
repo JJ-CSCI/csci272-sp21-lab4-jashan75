@@ -8,9 +8,47 @@ using Catch::Matchers::Equals;
 
 // Fix the following class
 class Complex {
+  private:
+        int real, imaginary;
+public:
+        
+        Complex(int real=0,int imaginary=0);
+        int re();
+        int im();
     void operator>>(std::string&) const;
     void operator<<(const std::string&);
 };
+
+Complex::Complex(int real, int imaginary)
+{
+        this->real = real;
+        this->imaginary = imaginary;
+
+};
+
+int Complex::re()
+{
+        return this->real;
+};
+
+int Complex::im()
+{
+        return this->imaginary;
+};
+
+void Complex::operator>>(std::string& s) const
+{
+        s.append(std::to_string(this->real));
+        if (this->imaginary > 0)
+        {
+                s.append("+");
+                
+        };
+       s.append(std::to_string(this->imaginary));
+         s.append("i");
+
+};
+
 
 //------------------------------
 //   DO NOT MODIFY TEST CASES
